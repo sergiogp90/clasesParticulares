@@ -17,12 +17,6 @@
         android:text="Nombre del archivo:"
         android:textColor="@android:color/black"/>
 
-    <EditText
-        android:id="@+id/edit_text_file_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_view_file_name_title"/>
-
     <TextView
         android:id="@+id/text_view_file_content"
         android:layout_width="match_parent"
@@ -31,19 +25,37 @@
         android:text="Contenido del archivo:"
         android:textColor="@android:color/black"/>
 
-    <EditText
-        android:id="@+id/edit_text_file_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_view_file_content"
-        android:inputType="textMultiLine"/>
-
     <Button
         android:id="@+id/btn_save"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_text_file_content"
         android:text="Guardar"
         android:onClick="doSaveFile"/>
+
+    <Button
+        android:id="@+id/btn_copiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_file_content"
+        android:layout_toRightOf="@id/btn_save"
+        android:text="copiar"
+        android:onClick="copiarArchivo"
+        />
+
+    <EditText
+        android:id="@+id/edit_text_file_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_file_name_title"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/edit_text_file_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/text_view_file_content"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -117,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
         // Se abren los dos flujos de salida: Uno para escribir el archivo escrito por el usuario,
         // y otro para escribir el archivo last_file, que contendrá el nombre del archivo creado por el usuario.
         // para poder recuperarlo al abrir la aplicación.
-        try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(openFileOutput(fileName, Context.MODE_PRIVATE)));
-             PrintWriter pw2 = new PrintWriter(new OutputStreamWriter(openFileOutput(LAST_FILE, Context.MODE_PRIVATE)))){
+        try (BufferedWriter pw = new BufferedWriter(new OutputStreamWriter(openFileOutput(fileName, Context.MODE_PRIVATE)));
+             BufferedWriter pw2 = new BufferedWriter(new OutputStreamWriter(openFileOutput(LAST_FILE, Context.MODE_PRIVATE)))){
 
             // Escribimos el contenido del archivo del usuario.
             pw.write(fileContent);
@@ -127,6 +128,14 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        Toast.makeText(this, "Sa escrito el archivo.", Toast.LENGTH_SHORT);
+    }
+
+    public void copiarArchivo(View view){
+
     }
 }
